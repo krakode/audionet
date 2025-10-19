@@ -1,0 +1,29 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[project]
+dependencies = [
+    "numpy>=1.20.0",
+    "soundfile>=0.10.0",
+    "librosa>=0.9.0",
+    "webrtcvad>=2.0.0"
+]
+description = "One-stop audio preprocessor for speech"
+dynamic = ["version"]
+name = "audionet"
+readme = "README.md"
+requires-python = "~=3.12"
+
+[project.optional-dependencies]
+dev = []
+
+[tool.isort]
+known_first_party = "audionet"
+profile = "black"
+
+[tool.pyright]
+exclude = ["tests"]
+
+[tool.setuptools.dynamic]
+version = {attr = "audionet._version.__version__"}
